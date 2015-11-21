@@ -112,7 +112,8 @@ public class HomeScreenActivity extends Activity {
   }
 
   public void showWebViewDialog(View view) {
-    Intent nextScreen = new Intent(getApplicationContext(), WebViewActivity.class);
+//    Intent nextScreen = new Intent(getApplicationContext(), WebViewActivity.class);
+    Intent nextScreen = new Intent(getApplicationContext(), LandscapeWebViewActivity.class);
     EditText urlField =
             (EditText) findViewById(io.selendroid.testapp.R.id.my_text_field);
 
