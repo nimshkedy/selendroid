@@ -39,11 +39,15 @@ public class WebViewActivity extends Activity {
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
-    server = HttpServer.getInstance();
 
     setContentView(io.selendroid.testapp.R.layout.webview);
-
     mainWebView = (WebView) findViewById(io.selendroid.testapp.R.id.mainWebView);
+    mainWebView.setWebViewClient(new WebViewClient());
+
+    /*
+    server = HttpServer.getInstance();
+
+
     mainWebView.setWebViewClient(new TestAppWebViewClient());
     testDataSpinner =
         (Spinner) findViewById(io.selendroid.testapp.R.id.spinner_webdriver_test_data);
@@ -90,9 +94,12 @@ public class WebViewActivity extends Activity {
         mainWebView.loadUrl(item.url);
       }
     });
+    */
+
     super.onCreate(savedInstanceState);
   }
 
+  /*
   private class TestAppWebViewClient extends WebViewClient {
 
     @Override
@@ -101,10 +108,15 @@ public class WebViewActivity extends Activity {
       return super.shouldOverrideUrlLoading(view, url);
     }
   }
+  */
 
   @Override
   protected void onStart() {
-    mainWebView.loadUrl("about:blank");
+//    mainWebView.loadUrl("about:blank");
+    Bundle b = getIntent().getExtras();
+    String url = b.getString("url");
+//    mainWebView.loadUrl("http://google.com");
+    mainWebView.loadUrl(url);
     super.onStart();
   }
 
