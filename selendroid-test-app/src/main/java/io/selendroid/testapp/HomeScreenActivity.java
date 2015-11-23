@@ -111,8 +111,18 @@ public class HomeScreenActivity extends Activity {
     new MyAsyncTask().execute("");
   }
 
-  public void showWebViewDialog(View view) {
-//    Intent nextScreen = new Intent(getApplicationContext(), WebViewActivity.class);
+  public void openPortraitWebview(View view) {
+    Intent nextScreen = new Intent(getApplicationContext(), WebViewActivity.class);
+    EditText urlField =
+            (EditText) findViewById(io.selendroid.testapp.R.id.my_text_field);
+
+    Bundle b = new Bundle();
+    b.putString("url", urlField.getText().toString()); //Your id
+    nextScreen.putExtras(b); //Put your id to your next Intent
+    startActivity(nextScreen);
+  }
+
+  public void openLandscapeWebview(View view) {
     Intent nextScreen = new Intent(getApplicationContext(), LandscapeWebViewActivity.class);
     EditText urlField =
             (EditText) findViewById(io.selendroid.testapp.R.id.my_text_field);
@@ -123,7 +133,7 @@ public class HomeScreenActivity extends Activity {
     startActivity(nextScreen);
   }
 
-    public void showTouchActionsDialog(View view) {
+  public void showTouchActionsDialog(View view) {
         Intent nextScreen = new Intent(getApplicationContext(), TouchGesturesActivity.class);
         startActivity(nextScreen);
     }
@@ -311,7 +321,7 @@ public class HomeScreenActivity extends Activity {
 
       @Override
       public void afterTextChanged(Editable editable) {
-        throw new RuntimeException("Unhandled Exception Test!");
+//        throw new RuntimeException("Unhandled Exception Test!");
       }
     });
   }

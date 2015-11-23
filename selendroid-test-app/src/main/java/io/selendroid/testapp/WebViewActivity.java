@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
@@ -40,9 +41,20 @@ public class WebViewActivity extends Activity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
 
+//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//      WebView.setWebContentsDebuggingEnabled(true);
+//    }
+
     setContentView(io.selendroid.testapp.R.layout.webview);
     mainWebView = (WebView) findViewById(io.selendroid.testapp.R.id.mainWebView);
+    mainWebView.getSettings().setJavaScriptEnabled(true);
     mainWebView.setWebViewClient(new WebViewClient());
+    WebSettings webSettings = mainWebView.getSettings();
+    webSettings.setJavaScriptEnabled(true);
+    webSettings.setDomStorageEnabled(true);
+    mainWebView.getSettings().setJavaScriptEnabled(true);
+    mainWebView.getSettings().setDomStorageEnabled(true);
+    mainWebView.getSettings().setPluginState(WebSettings.PluginState.ON);
 
     /*
     server = HttpServer.getInstance();
@@ -99,16 +111,16 @@ public class WebViewActivity extends Activity {
     super.onCreate(savedInstanceState);
   }
 
-  /*
-  private class TestAppWebViewClient extends WebViewClient {
 
-    @Override
-    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-      ((TextView)findViewById(R.id.webviewLocation)).setText(url);
-      return super.shouldOverrideUrlLoading(view, url);
-    }
-  }
-  */
+//  private class TestAppWebViewClient extends WebViewClient {
+//
+//    @Override
+//    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//      ((TextView)findViewById(R.id.webviewLocation)).setText(url);
+//      return super.shouldOverrideUrlLoading(view, url);
+//    }
+//  }
+
 
   @Override
   protected void onStart() {

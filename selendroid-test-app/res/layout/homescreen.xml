@@ -15,7 +15,8 @@
         android:id="@+id/l10n"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="l10nCD" >
+        android:contentDescription="l10nCD"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -36,7 +37,8 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="imageViewCD" >
+        android:contentDescription="imageViewCD"
+        android:visibility="gone">
 
         <ImageButton
             android:id="@+id/buttonStartWebview"
@@ -44,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:contentDescription="buttonStartWebviewCD"
-            android:onClick="showWebViewDialog"
+            android:onClick="openPortraitWebview"
             android:scaleType="center"
             android:src="@drawable/chrome" />
 
@@ -63,14 +65,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="my_text_fieldCD"
-        android:ems="10" >
+        android:ems="10"
+        android:hint="Enter URL">
     </EditText>
 
     <LinearLayout
         android:id="@+id/lastElementRow"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="imageViewCD" >
+        android:contentDescription="imageViewCD"
+        android:visibility="gone">
 
         <Button
             android:id="@+id/waitingButtonTest"
@@ -92,15 +96,16 @@
         android:id="@+id/visibleTestArea"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="visibleTestAreaCD" >
+        android:contentDescription="visibleTestAreaCD"
+        android:visibility="gone">
 
         <Button
             android:id="@+id/visibleButtonTest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="visibleButtonTestCD"
-            android:onClick="displayTextView"
-            android:text="Display text view" />
+            android:onClick="openPortraitWebview"
+            android:text="Open Portrait Webview" />
 
         <TextView
             android:id="@+id/visibleTextView"
@@ -111,10 +116,43 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/visibleTestArea2"
+        android:id="@+id/visibleTestAreaPortrait"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="visibleTestAreaCD" >
+
+        <Button
+            android:id="@+id/portraitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="portraitButtonCD"
+            android:onClick="openPortraitWebview"
+            android:text="Open Portrait Webview" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/visibleTestAreaLandscape"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="visibleTestAreaCD" >
+
+        <Button
+            android:id="@+id/landscapeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="landscapeButtonCD"
+            android:onClick="openLandscapeWebview"
+            android:text="Open Landscape Webview" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/visibleTestArea2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="visibleTestAreaCD"
+        android:visibility="gone">
 
         <Button
             android:id="@+id/showToastButton"
@@ -148,19 +186,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Type to throw unhandled exception" />
+        android:hint="Type to throw unhandled exception"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/encodingTextview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="パソコン版にする" />
+        android:text="パソコン版にする"
+        android:visibility="gone" />
 
     <LinearLayout
             android:id="@+id/visibleTestArea3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="anotherTestArea" >
+            android:contentDescription="anotherTestArea"
+        android:visibility="gone">
 
     <Button
             android:id="@+id/topLevelElementTest"
