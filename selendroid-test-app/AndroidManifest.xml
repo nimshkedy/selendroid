@@ -21,11 +21,11 @@
         <activity android:name=".WebViewActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"
-            android:theme="@android:style/Theme.NoTitleBar"/>
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
         <activity android:name=".LandscapeWebViewActivity"
             android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden"
-            android:theme="@android:style/Theme.NoTitleBar"/>
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
         <activity android:name=".MultipleWebViewsActivity"/>
         <activity android:name=".RegisterUserActivity"/>
         <activity android:name=".VerifyUserActivity"/>
