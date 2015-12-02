@@ -41,9 +41,13 @@ public class WebViewActivity extends Activity {
   @Override
   public void onCreate(Bundle savedInstanceState) {
 
-//    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-//      WebView.setWebContentsDebuggingEnabled(true);
-//    }
+    if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT){
+      try {
+        WebView.setWebContentsDebuggingEnabled(true);
+      } catch (IllegalArgumentException e) {
+        e.printStackTrace();
+      }
+    }
 
     setContentView(io.selendroid.testapp.R.layout.webview);
     mainWebView = (WebView) findViewById(io.selendroid.testapp.R.id.mainWebView);
